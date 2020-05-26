@@ -385,9 +385,12 @@ ON_MOTOR
 	rts
 
 MUTE
-
-;	jsr $D510
 	lda #0
+	ldx #7
+MUTE_CLEAR
+	sta $D200,x
+	dex
+	bpl MUTE_CLEAR
 	sta VC3+1
 	sta VC2+1
 	sta VC1+1
